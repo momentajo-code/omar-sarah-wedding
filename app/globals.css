@@ -1,0 +1,293 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0b0b0b;
+  --surface: #151515;
+  --primary: #d4af37;
+  --text: #ffffff;
+  --text-secondary: #a0a0a0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+  font-family: var(--font-body), sans-serif;
+  overflow-x: hidden;
+}
+
+/* =========================================
+   MAIN WEBSITE CONTAINER
+   Keeps EVERYTHING centered
+========================================= */
+
+.site-container {
+  width: min(1200px, calc(100% - 48px));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* =========================================
+   SECTION SPACING
+========================================= */
+
+.site-section {
+  width: 100%;
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+/* =========================================
+   SECTION HEADER
+========================================= */
+
+.section-header {
+  width: 100%;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.section-header p,
+.section-header h1,
+.section-header h2,
+.section-header h3 {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-header > p {
+  width: 100%;
+  max-width: 700px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* =========================================
+   SECTION CONTENT
+========================================= */
+
+.section-content {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+  .site-container {
+    width: min(100% - 32px, 1200px);
+  }
+
+  .site-section {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+
+  .section-header {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .section-header > p {
+    max-width: 100%;
+  }
+}
+
+/* =========================================================
+   MY BIRTHDAY TEMPLATE
+========================================================= */
+
+/*
+   IMPORTANT:
+   The birthday page must escape the global .site-container.
+   .site-container is limited to 1200px, which was causing
+   the birthday template to look shifted to the left on
+   wider screens.
+
+   This makes the birthday page exactly the width of the
+   viewport and centers it relative to the viewport.
+*/
+
+.birthday-page {
+  position: relative;
+  width: 100vw;
+  max-width: none;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  overflow-x: hidden;
+  background: #050505;
+  color: white;
+}
+
+.birthday-page .reveal {
+  opacity: 0;
+  transform: translateY(45px);
+  transition:
+    opacity 1s ease,
+    transform 1s cubic-bezier(.22, 1, .36, 1);
+}
+
+.birthday-page .reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.birthday-page .gold-line {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #d4af37,
+    transparent
+  );
+}
+
+.birthday-page .gold-text {
+  color: #d4af37;
+}
+
+.birthday-page .luxury-border {
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.birthday-page .image-zoom {
+  transition:
+    transform 1.2s cubic-bezier(.22, 1, .36, 1);
+}
+
+.birthday-page .gallery-card:hover .image-zoom {
+  transform: scale(1.06);
+}
+
+/* =========================================================
+   MOVING GALLERY
+========================================================= */
+
+.birthday-page .moving-strip {
+  animation:
+    birthdayMoveStrip 35s linear infinite;
+}
+
+.birthday-page .moving-strip-reverse {
+  animation:
+    birthdayMoveStripReverse 40s linear infinite;
+}
+
+@keyframes birthdayMoveStrip {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes birthdayMoveStripReverse {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* =========================================================
+   FLOATING NUMBER
+========================================================= */
+
+.birthday-page .floating-number {
+  animation:
+    birthdayFloatingNumber 5s ease-in-out infinite;
+}
+
+@keyframes birthdayFloatingNumber {
+  0%,
+  100% {
+    transform:
+      translate(-50%, -50%)
+      translateY(0);
+  }
+
+  50% {
+    transform:
+      translate(-50%, -50%)
+      translateY(-12px);
+  }
+}
+
+/* =========================================================
+   GOLD PULSE
+========================================================= */
+
+.birthday-page .pulse-gold {
+  animation:
+    birthdayPulseGold 2.5s ease-in-out infinite;
+}
+
+@keyframes birthdayPulseGold {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 0 rgba(212, 175, 55, 0.15);
+  }
+
+  50% {
+    box-shadow:
+      0 0 0 14px rgba(212, 175, 55, 0);
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 640px) {
+  .birthday-page .moving-strip {
+    animation-duration: 28s;
+  }
+
+  .birthday-page .moving-strip-reverse {
+    animation-duration: 32s;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .birthday-page .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .birthday-page .moving-strip,
+  .birthday-page .moving-strip-reverse,
+  .birthday-page .floating-number,
+  .birthday-page .pulse-gold {
+    animation: none;
+  }
+}
