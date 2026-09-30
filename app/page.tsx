@@ -11,14 +11,14 @@ const DATA = {
   date: '12 · 12 · 2026',
   time: '8:00 PM',
   location: 'Wedding Venue',
-  music: '/music/our-wedding.mp3',
-  heroImage: '/images/our-wedding/hero.jpg',
-  storyImage: '/images/our-wedding/story.jpg',
-  celebrationImage: '/images/our-wedding/celebration.jpg',
-  moment1: '/images/our-wedding/moment-1.jpg',
-  moment2: '/images/our-wedding/moment-2.jpg',
-  moment3: '/images/our-wedding/moment-3.jpg',
-  finalImage: '/images/our-wedding/final.jpg',
+  music: '/omar-sarah-wedding/music/our-wedding.mp3',
+  heroImage: '/omar-sarah-wedding/images/our-wedding/hero.jpg',
+  storyImage: '/omar-sarah-wedding/images/our-wedding/story.jpg',
+  celebrationImage: '/omar-sarah-wedding/images/our-wedding/celebration.jpg',
+  moment1: '/omar-sarah-wedding/images/our-wedding/moment-1.jpg',
+  moment2: '/omar-sarah-wedding/images/our-wedding/moment-2.jpg',
+  moment3: '/omar-sarah-wedding/images/our-wedding/moment-3.jpg',
+  finalImage: '/omar-sarah-wedding/images/our-wedding/final.jpg',
 };
 
 function Ornament() {
@@ -369,7 +369,7 @@ export default function OurWeddingPage() {
         button { font: inherit; }
         .page { min-height: 100vh; overflow: hidden; background: #f3eee5; }
         .entry { position: fixed; inset: 0; z-index: 9999; display: grid; place-items: center; overflow: hidden; background: #1d1713; color: #f8f2e8; }
-        .entry-image { position: absolute; inset: 0; background: linear-gradient(rgba(22,16,12,.45),rgba(22,16,12,.7)), url('/images/our-wedding/hero.jpg') center/cover no-repeat; transform: scale(1.04); }
+        .entry-image { position: absolute; inset: 0; background: linear-gradient(rgba(22,16,12,.45),rgba(22,16,12,.7)), url('/omar-sarah-wedding/images/our-wedding/hero.jpg') center/cover no-repeat; transform: scale(1.04); }
         .entry-overlay { position: absolute; inset: 0; background: radial-gradient(circle at center, transparent 0%, rgba(20,13,9,.38) 55%, rgba(12,8,6,.75) 100%); }
         .entry-content { position: relative; z-index: 2; width: min(90%,900px); text-align: center; }
         .entry-eyebrow,.eyebrow { margin: 0 0 20px; font-size: 12px; letter-spacing: .28em; text-transform: uppercase; }
